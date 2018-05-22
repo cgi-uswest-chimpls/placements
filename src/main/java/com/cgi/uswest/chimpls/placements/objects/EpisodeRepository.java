@@ -1,6 +1,8 @@
 package com.cgi.uswest.chimpls.placements.objects;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -13,6 +15,7 @@ public interface EpisodeRepository extends PagingAndSortingRepository<Episode, U
 
 	Episode findEpisodeByIdepsd(@Param("idepsd") String idepsd);
 	
-	Episode findEpisodeByIdprvdorg(@Param("idprvdorg") String idprvdorg);
+	Set<Episode> findAllByIdprvdorg(@Param("idprvdorg") String idprvdorg);
 	
+	Set<Episode> findAllByIdprsnOrderByDtbgnDesc(@Param("idprsn") String idprsn);
 }

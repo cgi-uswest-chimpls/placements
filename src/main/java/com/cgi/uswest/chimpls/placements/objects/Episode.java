@@ -1,6 +1,9 @@
 package com.cgi.uswest.chimpls.placements.objects;
 
 import java.math.BigDecimal;
+
+import java.sql.Timestamp;
+
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -26,15 +29,24 @@ public class Episode {
 	private String idprsn;
 	private BigDecimal amrate;
 	private String idprvdorg;
+	private Timestamp dtbgn;
+	private Timestamp dtend;
+	private Timestamp dtrmvl;
+	private String flrmvl;
 	
 	Episode() {}
 
-	public Episode(String idepsd, String idprsn, BigDecimal amrate, String idprvdorg) {
+	public Episode(String idepsd, String idprsn, BigDecimal amrate, String idprvdorg,
+			Timestamp dtbgn, Timestamp dtend, Timestamp dtrmvl, String flrmvl) {
 		super();
 		this.idepsd = idepsd;
 		this.idprsn = idprsn;
 		this.amrate = amrate;
 		this.idprvdorg = idprvdorg;
+		this.dtbgn = dtbgn;
+		this.dtend = dtend;
+		this.dtrmvl = dtrmvl;
+		this.flrmvl = flrmvl;
 	}
 	
 	public String getIdepsd() {
@@ -62,6 +74,38 @@ public class Episode {
 
 	public void setIdprvdorg(String idprvdorg) {
 		this.idprvdorg = idprvdorg;
+	}
+
+	public Timestamp getDtbgn() {
+		return dtbgn;
+	}
+
+	public void setDtbgn(Timestamp dtbgn) {
+		this.dtbgn = dtbgn;
+	}
+
+	public Timestamp getDtend() {
+		return dtend;
+	}
+
+	public void setDtend(Timestamp dtend) {
+		this.dtend = dtend;
+	}
+
+	public Timestamp getDtrmvl() {
+		return dtrmvl;
+	}
+
+	public void setDtrmvl(Timestamp dtrmvl) {
+		this.dtrmvl = dtrmvl;
+	}
+
+	public String getFlrmvl() {
+		return flrmvl;
+	}
+
+	public void setFlrmvl(String flrmvl) {
+		this.flrmvl = flrmvl;
 	}
 	
 }
