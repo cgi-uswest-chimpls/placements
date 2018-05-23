@@ -12,13 +12,18 @@ import com.cgi.uswest.chimpls.placements.objects.EpisodeRepository;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
 @RefreshScope
 @RestController
 public class PlacementsApplicationController {
 
 	  @Autowired
 	  private EpisodeRepository repository;
-	
+	  
 	  @RequestMapping("/episode/{idepsd}")
 	   public Episode findOne(@PathVariable("idepsd") String idepsd) {
 	       return repository.findEpisodeByIdepsd(idepsd);
@@ -32,6 +37,14 @@ public class PlacementsApplicationController {
 	  @RequestMapping("/episodesByChild/{idprsn}")
 	   public Set<Episode> findEpisodesByChild(@PathVariable("idprsn") String idprsn) {
 		  return repository.findAllByIdprsnOrderByDtbgnDesc(idprsn);
+	  }
+	  
+	  @RequestMapping("/episodeCurrentForChild/{idprsn}")
+	   public Episode findCurrentEpisodeForChild(@PathVariable("idprsn") String idprsn) {
+		  
+		  return repository.findCurrentEpisodeForChild(idprsn);
+
+			
 	  }
 	  
 }
