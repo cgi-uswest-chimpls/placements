@@ -5,7 +5,7 @@ spring:
     name: placements
   cloud:
     config:
-      uri: ${vcap.services.cw-portal-config-server-encrypted.credentials.uri:http://localhost:8888}
+      uri: ${vcap.services.cw-portal-config-server.credentials.uri:http://localhost:8888}
       
   security:
     user:
